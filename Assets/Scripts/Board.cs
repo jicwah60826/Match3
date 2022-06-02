@@ -14,12 +14,23 @@ public class Board : MonoBehaviour
     void Start()
     {
 
+        setup();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void setup()
     {
+        /* build the board with loops. One for X going to the width value, then one for the Y going to the height value. */
 
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                Vector2 pos = new Vector2(x, y);
+                GameObject bgTile = Instantiate(bgTilePreFab, pos, Quaternion.identity);
+                bgTile.transform.parent = transform; //set the spawned tiles as children of the Board gameobject
+                bgTile.name = "Bg Tile - " + x + ", " + y;
+            }
+        }
     }
 }
-
