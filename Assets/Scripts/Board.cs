@@ -16,6 +16,11 @@ public class Board : MonoBehaviour
 
     public float gemSpeed; // how fast the gems will move when they are swapped
 
+    public int maxIterationsAllowed;
+    public float waitToRefillBoard;
+    public float postRefillMatchCheckWait;
+    public float waitToDestroyAutoMatches;
+
     [HideInInspector]
     public MatchFinder matchFind; // GameObject object of class MatchFinder so we can access the matchfinder script
 
@@ -60,9 +65,8 @@ public class Board : MonoBehaviour
 
 
                 int bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
-
                 int iterations = 0;
-                while (MatchesAt(new Vector2Int(x, y), bags[bagToUse]) && iterations < 100)
+                while (MatchesAt(new Vector2Int(x, y), bags[bagToUse]) && iterations < maxIterationsAllowed)
                 {
                     bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
                     iterations++;
@@ -76,7 +80,7 @@ public class Board : MonoBehaviour
 
     private void SpawnBag(Vector2Int pos, Bag bagToSpawn)
     {
-        Bag bag = Instantiate(bagToSpawn, new Vector3(pos.x, pos.y, 0f), Quaternion.identity); // instantiate each bag 
+        Bag bag = Instantiate(bagToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity); // instantiate each bag, but spawn it in at the top of the board so that it slides into position
         bag.transform.parent = transform;
         bag.name = "Bag - " + pos.x + ", " + pos.y;
 
@@ -130,6 +134,97 @@ public class Board : MonoBehaviour
             {
                 DestroyMatchedBagAt(matchFind.currentMatches[i].posIndex); /* pull in the index ID of the bag in the bag list and get the position index. This is fed into the DestroyMatchedBagAt function above  */
             }
+        }
+
+        StartCoroutine(DecreaseRowCo());
+    }
+
+    private IEnumerator DecreaseRowCo()
+    {
+        yield return new WaitForSeconds(.2f); // wait before moving bags
+
+        // track number of empty spaces per column
+
+        int nullCounter = 0;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                // check that gem space is null
+                if (allBags[x, y] == null)
+                {
+                    nullCounter++; //iterate blank spot counter if the x,y spoace for a given bag is null
+                }
+                else if (
+                    nullCounter > 0)
+                {
+                    allBags[x, y].posIndex.y -= nullCounter; // move the bag down the Y axis by the number os spots we find that are null
+                    allBags[x, y - nullCounter] = allBags[x, y];
+                    allBags[x, y] = null;
+
+                }
+            }
+            nullCounter = 0; // reset the null counter after we do each column loop
+        }
+        StartCoroutine(FillBoardCo()); // invoke coroutine to refill the board
+    }
+
+    private IEnumerator FillBoardCo()
+    {
+        yield return new WaitForSeconds(waitToRefillBoard);
+        RefillBoard(); //refill the board
+        yield return new WaitForSeconds(postRefillMatchCheckWait); // wait a bit until we invoke the mechanism that checks for any matches after the board has been refilled
+        matchFind.FindAllMatches();
+        if (matchFind.currentMatches.Count > 0)
+        {
+            // if we have matches again into the matchfinder list, then we invoke the process to destroy these matches
+            yield return new WaitForSeconds(waitToDestroyAutoMatches);
+            DestroyMatches();
+        }
+    }
+
+    private void RefillBoard()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if ((allBags[x, y] == null))
+                {
+                    // spawn bags for only those spots that are empty
+                    int bagToUse = Random.Range(0, bags.Length); //pick a random bag from the array
+                    SpawnBag(new Vector2Int(x, y), bags[bagToUse]); // spawn bag
+                }
+
+            }
+        }
+
+        CheckMisPlacedBags(); // check for any mis-placed bags
+    }
+
+    private void CheckMisPlacedBags()
+    {
+        // find all the bags that exist in the scene atr the moment
+        List<Bag> foundBags = new List<Bag>();
+        foundBags.AddRange(FindObjectsOfType<Bag>());
+
+        //loop through all the bags on the board
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (foundBags.Contains(allBags[x, y]))
+                {
+                    foundBags.Remove(allBags[x, y]);
+                }
+            }
+        }
+
+        foreach (Bag b in foundBags)
+        {
+            Destroy(b.gameObject);
         }
     }
 }

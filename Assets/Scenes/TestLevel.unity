@@ -245,6 +245,10 @@ MonoBehaviour:
   - {fileID: 4797899052652409982, guid: ab096c8cb4068a94f8cf9f130014bc30, type: 3}
   - {fileID: 5198754046118462283, guid: 0bdc72f3daf07604a9783fcf643dfa2e, type: 3}
   gemSpeed: 8
+  maxIterationsAllowed: 100
+  waitToRefillBoard: 0.5
+  postRefillMatchCheckWait: 0.5
+  waitToDestroyAutoMatches: 1.5
   matchFind: {fileID: 0}
 --- !u!4 &619344694
 Transform:
