@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1756254875567848613}
   - component: {fileID: 8192290961102467068}
+  - component: {fileID: 5717980532762707666}
   m_Layer: 0
   m_Name: Gem - Blue
   m_TagString: Untagged
@@ -82,3 +83,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5717980532762707666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147553732352090960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb5274e854ba4044a2b408bce989d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -44,7 +44,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Gem
+  - name: Bag
     uniqueID: 269557725
     locked: 0
   - name: Effect
