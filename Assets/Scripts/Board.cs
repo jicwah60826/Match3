@@ -61,9 +61,11 @@ public class Board : MonoBehaviour
 
                 int bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
 
-                while (MatchesAt(new Vector2Int(x,y), bags[bagToUse]))
+                int iterations = 0;
+                while (MatchesAt(new Vector2Int(x, y), bags[bagToUse]) && iterations < 100)
                 {
                     bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
+                    iterations++;
                 }
 
 
@@ -86,7 +88,7 @@ public class Board : MonoBehaviour
     bool MatchesAt(Vector2Int posToCheck, Bag bagToCheck)
     {
 
-        // This function continually checks to see if we have a matching bag one the X or the Y from the current bag. This is used during the intial board setup to prevent any matching bags on setup.
+        /* This function continually checks to see if we have a matching bag one the X or the Y from the current bag. This is used during the intial board setup to prevent any matching bags on setup. */
 
         if (posToCheck.x > 1)
         {
@@ -105,5 +107,29 @@ public class Board : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void DestroyMatchedBagAt(Vector2Int pos) // take in a vector2 int for the bag position to be destroyed
+    {
+        if (allBags[pos.x, pos.y] != null)
+        {
+            if (allBags[pos.x, pos.y].isMatched) // if the bag has been marked as matched
+            {
+                Destroy(allBags[pos.x, pos.y].gameObject); // destroy bag game object at given pos.x and pos.y
+                allBags[pos.x, pos.y] = null; // null the x & y position for that baf as it no longer exists.
+            }
+        }
+    }
+
+    public void DestroyMatches()
+    {
+        // loop through matchfinder using the current matrches list
+        for (int i = 0; i < matchFind.currentMatches.Count; i++) // loop through all bags in list that we need to destroy
+        {
+            if (matchFind.currentMatches[i] != null) /* check if the matched bags list is not null */
+            {
+                DestroyMatchedBagAt(matchFind.currentMatches[i].posIndex); /* pull in the index ID of the bag in the bag list and get the position index. This is fed into the DestroyMatchedBagAt function above  */
+            }
+        }
     }
 }

@@ -138,6 +138,11 @@ public class Bag : MonoBehaviour
                 board.allBags[posIndex.x, posIndex.y] = this;
                 board.allBags[otherBag.posIndex.x, otherBag.posIndex.y] = otherBag;
             }
+            else
+            {
+                // we have matches! Destroy these bags!
+                board.DestroyMatches();
+            }
         }
     }
 }
