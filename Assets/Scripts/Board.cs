@@ -24,6 +24,10 @@ public class Board : MonoBehaviour
     [HideInInspector]
     public MatchFinder matchFind; // GameObject object of class MatchFinder so we can access the matchfinder script
 
+    public enum BoardState { move, wait };
+    public BoardState currentState = BoardState.move;
+
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>(); // find the matchfinder script on awake
@@ -41,7 +45,7 @@ public class Board : MonoBehaviour
 
     private void Update()
     {
-        matchFind.FindAllMatches(); // Run the find all matches function from the MatchFinder class to continually see if we have any matches
+        // matchFind.FindAllMatches(); // Run the find all matches function from the MatchFinder class to continually see if we have any matches
     }
 
     private void setup()
@@ -181,6 +185,12 @@ public class Board : MonoBehaviour
             // if we have matches again into the matchfinder list, then we invoke the process to destroy these matches
             yield return new WaitForSeconds(waitToDestroyAutoMatches);
             DestroyMatches();
+        }
+        else
+        {
+            // if no more auto-matches can be found
+            yield return new WaitForSeconds(.5f);
+            currentState = BoardState.move;//allow move once bags switch bag to current positions
         }
     }
 

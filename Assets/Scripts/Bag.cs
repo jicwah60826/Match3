@@ -50,9 +50,12 @@ public class Bag : MonoBehaviour
         if (mousePressed == true && Input.GetMouseButtonUp(0))
         {
             mousePressed = false;
-            finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
-            //Debug.Log("finalTouchPosition: " + finalTouchPosition);
-            CalculateAngle();
+
+            if (board.currentState == Board.BoardState.move)
+            {
+                finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
+                CalculateAngle();
+            }
         }
     }
 
@@ -64,10 +67,13 @@ public class Bag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Debug.Log("pressed - " + name);
-        firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
-        //Debug.Log("firstTouchPosition: " + firstTouchPosition);
-        mousePressed = true;
+        if (board.currentState == Board.BoardState.move)
+        {
+            //Debug.Log("pressed - " + name);
+            firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
+            //Debug.Log("firstTouchPosition: " + firstTouchPosition);
+            mousePressed = true;
+        }
     }
 
     private void CalculateAngle()
@@ -124,6 +130,9 @@ public class Bag : MonoBehaviour
 
     public IEnumerator CheckMoveCo()
     {
+
+        board.currentState = Board.BoardState.wait;
+
         yield return new WaitForSeconds(.5f); // wait
 
         board.matchFind.FindAllMatches(); //invoke the Matchfinder function
@@ -137,6 +146,8 @@ public class Bag : MonoBehaviour
 
                 board.allBags[posIndex.x, posIndex.y] = this;
                 board.allBags[otherBag.posIndex.x, otherBag.posIndex.y] = otherBag;
+                yield return new WaitForSeconds(.5f);
+                board.currentState = Board.BoardState.move; //allow move once bags switch bag to current positions
             }
             else
             {
