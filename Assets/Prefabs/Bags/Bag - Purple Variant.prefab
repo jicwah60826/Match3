@@ -12,6 +12,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: blastSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: scoreValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: destroyEffect
       value: 
       objectReference: {fileID: 1493624284501731878, guid: 5243a8b0e77dd2f4ebe73478972de7eb, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -58,16 +59,25 @@ public class RoundManager : MonoBehaviour
         {
             uiMan.winText.text = "You rock! 3 Stars!";
             uiMan.winStars3.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star3", 1);
         }
         else if (currentScore >= scoreTarget2)
         {
             uiMan.winText.text = "Meh - 2 stars. Keep going, you'll get there (maybe)";
             uiMan.winStars2.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
         }
         else if (currentScore >= scoreTarget1)
         {
             uiMan.winText.text = "Wow....a star. Yay for you.";
             uiMan.winStars1.SetActive(true);
+
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
         }
         else
         {

@@ -469,9 +469,9 @@ MonoBehaviour:
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
-  scoreTarget1: 100
-  scoreTarget2: 500
-  scoreTarget3: 1000
+  scoreTarget1: 2000
+  scoreTarget2: 4000
+  scoreTarget3: 8000
 --- !u!4 &1821843919
 Transform:
   m_ObjectHideFlags: 0
@@ -685,6 +685,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7414230959556573111, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414230959967727912, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723906, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -771,6 +779,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723910, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414230960466381921, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
