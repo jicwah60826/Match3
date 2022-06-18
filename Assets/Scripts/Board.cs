@@ -33,6 +33,9 @@ public class Board : MonoBehaviour
     [HideInInspector]
     public RoundManager roundMan;
 
+    private float bonusMulti;
+    public float bonusAmount;
+
 
     private void Awake()
     {
@@ -206,6 +209,7 @@ public class Board : MonoBehaviour
         matchFind.FindAllMatches();
         if (matchFind.currentMatches.Count > 0)
         {
+            bonusMulti++; // iterate the bonus multiplier each time another match is found
             // if we have matches again into the matchfinder list, then we invoke the process to destroy these matches
             yield return new WaitForSeconds(waitToDestroyAutoMatches);
             DestroyMatches();
@@ -214,7 +218,8 @@ public class Board : MonoBehaviour
         {
             // if no more auto-matches can be found
             yield return new WaitForSeconds(.5f);
-            currentState = BoardState.move;//allow move once bags switch bag to current positions
+            currentState = BoardState.move; //allow move once bags switch bag to current positions
+            bonusMulti = 0f; // reset 
         }
     }
 
@@ -310,5 +315,11 @@ public class Board : MonoBehaviour
     public void ScoreCheck(Bag bagToCheck)
     {
         roundMan.currentScore += bagToCheck.scoreValue;
+
+        if (bonusMulti > 0)
+        {
+            float bonusToAdd = bagToCheck.scoreValue * bonusMulti * bonusAmount;
+            roundMan.currentScore += Mathf.RoundToInt(bonusToAdd);
+        }
     }
 }

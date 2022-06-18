@@ -13,6 +13,9 @@ public class RoundManager : MonoBehaviour
 
     public int currentScore;
     public float displayScore;
+    public float scoreSpeed;
+
+    public int scoreTarget1, scoreTarget2, scoreTarget3;
 
     private void Awake()
     {
@@ -39,12 +42,36 @@ public class RoundManager : MonoBehaviour
             endingRound = false;
         }
 
-        uiMan.timeText.text = roundTime.ToString("0.0") + "s";
-        uiMan.scoreText.text = displayScore.ToString("0");
+        uiMan.timeText.text = roundTime.ToString("0.0") + "s"; // format time to only one decimal point
+
+        displayScore = Mathf.Lerp(displayScore, currentScore, scoreSpeed * Time.deltaTime);
+        uiMan.scoreText.text = displayScore.ToString("0"); // no decimals in score
     }
 
     private void WinCheck()
     {
         uiMan.roundOverScreen.SetActive(true);
+
+        uiMan.winScore.text = currentScore.ToString();
+
+        if (currentScore >= scoreTarget3)
+        {
+            uiMan.winText.text = "You rock! 3 Stars!";
+            uiMan.winStars3.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget2)
+        {
+            uiMan.winText.text = "Meh - 2 stars. Keep going, you'll get there (maybe)";
+            uiMan.winStars2.SetActive(true);
+        }
+        else if (currentScore >= scoreTarget1)
+        {
+            uiMan.winText.text = "Wow....a star. Yay for you.";
+            uiMan.winStars1.SetActive(true);
+        }
+        else
+        {
+            uiMan.winText.text = "Seriously? No stars!!!??? Try again.";
+        }
     }
 }
