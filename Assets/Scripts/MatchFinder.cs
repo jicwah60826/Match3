@@ -70,5 +70,83 @@ public class MatchFinder : MonoBehaviour
         {
             currentMatches = currentMatches.Distinct().ToList();
         }
+        CheckForBombs();
+    }
+
+    public void CheckForBombs()
+    {
+        for (int i = 0; i < currentMatches.Count; i++)
+        {
+            Bag bag = currentMatches[i];
+
+            int x = bag.posIndex.x;
+            int y = bag.posIndex.y;
+
+            if (bag.posIndex.x > 0)
+            {
+                //check all bags on the x axis
+                if (board.allBags[x - 1, y] != null)
+                {
+                    if (board.allBags[x - 1, y].type == Bag.BagType.bomb)
+                    {
+                        MarkBombArea(new Vector2Int(x - 1, y), board.allBags[x - 1, y]);
+                    }
+                }
+            }
+            if (bag.posIndex.x < board.width - 1)
+            {
+                //check all bags on the x axis
+                if (board.allBags[x + 1, y] != null)
+                {
+                    if (board.allBags[x + 1, y].type == Bag.BagType.bomb)
+                    {
+                        MarkBombArea(new Vector2Int(x + 1, y), board.allBags[x + 1, y]);
+                    }
+                }
+            }
+            if (bag.posIndex.y > 0)
+            {
+                //check all bags on the x axis
+                if (board.allBags[x, y - 1] != null)
+                {
+                    if (board.allBags[x, y - 1].type == Bag.BagType.bomb)
+                    {
+                        MarkBombArea(new Vector2Int(x, y - 1), board.allBags[x, y - 1]);
+                    }
+                }
+            }
+            if (bag.posIndex.y < board.height - 1)
+            {
+                //check all bags on the x axis
+                if (board.allBags[x, y + 1] != null)
+                {
+                    if (board.allBags[x, y + 1].type == Bag.BagType.bomb)
+                    {
+                        MarkBombArea(new Vector2Int(x, y + 1), board.allBags[x, y + 1]);
+                    }
+                }
+            }
+
+        }
+    }
+
+    public void MarkBombArea(Vector2Int bombPos, Bag theBomb)
+    {
+        for (int x = bombPos.x - theBomb.blastSize; x <= bombPos.x + theBomb.blastSize; x++)
+        {
+            for (int y = bombPos.y - theBomb.blastSize; y <= bombPos.y + theBomb.blastSize; y++)
+            {
+                if (x >= 0 && x < board.width && y >= 0 && y < board.height)
+                {
+                    if (board.allBags[x, y] != null)
+                    {
+                        board.allBags[x, y].isMatched = true;
+                        currentMatches.Add(board.allBags[x, y]);
+                    }
+                }
+            }
+        }
+
+        currentMatches = currentMatches.Distinct().ToList();
     }
 }

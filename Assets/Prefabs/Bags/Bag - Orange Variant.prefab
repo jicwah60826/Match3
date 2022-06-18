@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: type
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: destroyEffect
+      value: 
+      objectReference: {fileID: 2234522794006780449, guid: ca111296c2ba7a44fa9392b2aff9dfeb, type: 3}
     - target: {fileID: 4302797951561769680, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_Name
       value: Bag - Orange Variant

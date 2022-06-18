@@ -1,39 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4797899052992024156
+--- !u!1001 &6959022435440527908
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5742119452234455085, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -5742119452234455085, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.60833335
+      objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: type
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: blastSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: destroyEffect
       value: 
-      objectReference: {fileID: 1493624284501731878, guid: 5243a8b0e77dd2f4ebe73478972de7eb, type: 3}
+      objectReference: {fileID: 1413033081667857376, guid: aa8c57ecb95db1a4f9c7dcb2b2e510bc, type: 3}
     - target: {fileID: 4302797951561769680, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_Name
-      value: Bag - Purple Variant
+      value: Bomb Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6513485142761024772, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6d3648339af059741b98aa6dd584b2f6, type: 3}
+      objectReference: {fileID: 21300000, guid: 665fddb764baea94b9dd920014470312, type: 3}
     - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.04
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.88
+      value: 3.03
       objectReference: {fileID: 0}
     - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: m_LocalPosition.z

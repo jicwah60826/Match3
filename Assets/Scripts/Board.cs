@@ -27,6 +27,9 @@ public class Board : MonoBehaviour
     public enum BoardState { move, wait };
     public BoardState currentState = BoardState.move;
 
+    public Bag bomb;
+    public float bombChance;
+
 
     private void Awake()
     {
@@ -46,6 +49,11 @@ public class Board : MonoBehaviour
     private void Update()
     {
         // matchFind.FindAllMatches(); // Run the find all matches function from the MatchFinder class to continually see if we have any matches
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ShuffleBoard();
+        }
     }
 
     private void setup()
@@ -84,6 +92,13 @@ public class Board : MonoBehaviour
 
     private void SpawnBag(Vector2Int pos, Bag bagToSpawn)
     {
+
+        if (Random.Range(0f, 100f) < bombChance)
+        {
+            bagToSpawn = bomb;
+        }
+
+
         Bag bag = Instantiate(bagToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity); // instantiate each bag, but spawn it in at the top of the board so that it slides into position
         bag.transform.parent = transform;
         bag.name = "Bag - " + pos.x + ", " + pos.y;
@@ -123,6 +138,8 @@ public class Board : MonoBehaviour
         {
             if (allBags[pos.x, pos.y].isMatched) // if the bag has been marked as matched
             {
+                Instantiate(allBags[pos.x, pos.y].destroyEffect, new Vector2(pos.x, pos.y), Quaternion.identity);
+
                 Destroy(allBags[pos.x, pos.y].gameObject); // destroy bag game object at given pos.x and pos.y
                 allBags[pos.x, pos.y] = null; // null the x & y position for that baf as it no longer exists.
             }
@@ -235,6 +252,51 @@ public class Board : MonoBehaviour
         foreach (Bag b in foundBags)
         {
             Destroy(b.gameObject);
+        }
+    }
+
+    public void ShuffleBoard()
+    {
+        if (currentState != BoardState.wait)
+        {
+            currentState = BoardState.wait;
+
+            // create a list of all the bags on the board
+
+            List<Bag> bagsFromBoard = new List<Bag>();
+
+            // Strip the gems of the board and store into a new list
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    bagsFromBoard.Add(allBags[x, y]); //get the gems from the board and into the list
+                    allBags[x, y] = null; // that position on the board should now be null. Just removes the reference to the gem on the board.
+                }
+            }
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    // take the gems from the list and put them back into the board into new positions.
+                    int bagToUse = Random.Range(0, bagsFromBoard.Count); // pick a random bag from the list
+
+                    int iterations = 0;
+                    while (MatchesAt(new Vector2Int(x, y), bagsFromBoard[bagToUse]) && iterations < maxIterationsAllowed && bagsFromBoard.Count > 1)
+                    {
+                        // if there is a match found during shuffle, then pick a new bag to use
+                        bagToUse = Random.Range(0, bagsFromBoard.Count); // pick a random bag from the list
+                        iterations++;
+                    }
+
+                    // setup the new bag position
+                    bagsFromBoard[bagToUse].SetupBag(new Vector2Int(x, y), this); //look at the bag were about to set. Have it go to the new point we're looking at.
+                    allBags[x, y] = bagsFromBoard[bagToUse]; // on the actual board itself, put the actual bag into that slot
+                    bagsFromBoard.RemoveAt(bagToUse); // remove this bag fropm the bags list so that it can't be picked again
+                }
+            }
+            StartCoroutine(FillBoardCo());
         }
     }
 }

@@ -18,12 +18,15 @@ public class Bag : MonoBehaviour
 
     private Bag otherBag;
 
-    public enum BagType { blue, green, red, orange, purple }; // specify the values to use in the enum
+    public enum BagType { blue, green, red, orange, purple, bomb }; // specify the values to use in the enum
     public BagType type; // expose the enum options as type in the editor
     public bool isMatched;
     [HideInInspector]
     public Vector2Int previousPosition;
 
+    public GameObject destroyEffect;
+    
+    public int blastSize = 1;
 
     // Start is called before the first frame update
     void Start()
