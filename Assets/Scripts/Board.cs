@@ -30,10 +30,14 @@ public class Board : MonoBehaviour
     public Bag bomb;
     public float bombChance;
 
+    [HideInInspector]
+    public RoundManager roundMan;
+
 
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>(); // find the matchfinder script on awake
+        roundMan = FindObjectOfType<RoundManager>();
     }
 
     // Start is called before the first frame update
@@ -153,6 +157,9 @@ public class Board : MonoBehaviour
         {
             if (matchFind.currentMatches[i] != null) /* check if the matched bags list is not null */
             {
+
+                ScoreCheck(matchFind.currentMatches[i]);
+
                 DestroyMatchedBagAt(matchFind.currentMatches[i].posIndex); /* pull in the index ID of the bag in the bag list and get the position index. This is fed into the DestroyMatchedBagAt function above  */
             }
         }
@@ -298,5 +305,10 @@ public class Board : MonoBehaviour
             }
             StartCoroutine(FillBoardCo());
         }
+    }
+
+    public void ScoreCheck(Bag bagToCheck)
+    {
+        roundMan.currentScore += bagToCheck.scoreValue;
     }
 }

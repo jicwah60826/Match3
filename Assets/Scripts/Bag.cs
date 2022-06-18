@@ -25,8 +25,10 @@ public class Bag : MonoBehaviour
     public Vector2Int previousPosition;
 
     public GameObject destroyEffect;
-    
+
     public int blastSize = 1;
+
+    public int scoreValue = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,7 @@ public class Bag : MonoBehaviour
         {
             mousePressed = false;
 
-            if (board.currentState == Board.BoardState.move)
+            if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
                 CalculateAngle();
@@ -70,7 +72,7 @@ public class Bag : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (board.currentState == Board.BoardState.move)
+        if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
         {
             //Debug.Log("pressed - " + name);
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
