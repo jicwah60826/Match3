@@ -18,7 +18,7 @@ public class Bag : MonoBehaviour
 
     private Bag otherBag;
 
-    public enum BagType { blue, green, red, orange, purple, bomb }; // specify the values to use in the enum
+    public enum BagType { blue, green, red, orange, purple, bomb, stone }; // specify the values to use in the enum
     public BagType type; // expose the enum options as type in the editor
     public bool isMatched;
     [HideInInspector]

@@ -36,11 +36,15 @@ public class Board : MonoBehaviour
     private float bonusMulti;
     public float bonusAmount;
 
+    private BoardLayout boardLayout;
+    private Bag[,] layoutStore;
+
 
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>(); // find the matchfinder script on awake
         roundMan = FindObjectOfType<RoundManager>();
+        boardLayout = GetComponent<BoardLayout>();
     }
 
     // Start is called before the first frame update
@@ -48,6 +52,8 @@ public class Board : MonoBehaviour
     {
 
         allBags = new Bag[width, height]; // define the all bags array so that we can store each bags width and height location
+
+        layoutStore = new Bag[width, height];
 
         setup(); // build the board
 
@@ -73,6 +79,11 @@ public class Board : MonoBehaviour
         
         */
 
+        if (boardLayout != null)
+        {
+            layoutStore = boardLayout.GetLayout();
+        }
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -83,16 +94,23 @@ public class Board : MonoBehaviour
                 bgTile.name = "Bg Tile - " + x + ", " + y; // give each bg tile a name that has the X, Y position
 
 
-                int bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
-                int iterations = 0;
-                while (MatchesAt(new Vector2Int(x, y), bags[bagToUse]) && iterations < maxIterationsAllowed)
+                if (layoutStore[x, y] != null)
                 {
-                    bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
-                    iterations++;
+                    SpawnBag(new Vector2Int(x, y), layoutStore[x, y]);
                 }
+                else
+                {
 
-
-                SpawnBag(new Vector2Int(x, y), bags[bagToUse]); // invoke the SpawnBag function, sending the x & y position and the index ID of the bag to spawn from the bag array
+                    int bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
+                    int iterations = 0;
+                    while (MatchesAt(new Vector2Int(x, y), bags[bagToUse]) && iterations < maxIterationsAllowed)
+                    {
+                        bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
+                        iterations++;
+                    }
+                    
+                    SpawnBag(new Vector2Int(x, y), bags[bagToUse]); // invoke the SpawnBag function, sending the x & y position and the index ID of the bag to spawn from the bag array
+                }
             }
         }
     }
