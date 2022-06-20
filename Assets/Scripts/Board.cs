@@ -108,7 +108,7 @@ public class Board : MonoBehaviour
                         bagToUse = Random.Range(0, bags.Length); // pick a random bag to index ID from the bag array
                         iterations++;
                     }
-                    
+
                     SpawnBag(new Vector2Int(x, y), bags[bagToUse]); // invoke the SpawnBag function, sending the x & y position and the index ID of the bag to spawn from the bag array
                 }
             }
@@ -131,6 +131,7 @@ public class Board : MonoBehaviour
         allBags[pos.x, pos.y] = bag;
 
         bag.SetupBag(pos, this);
+        SFXManager.instance.BagSpanwnSFX();
     }
 
     bool MatchesAt(Vector2Int posToCheck, Bag bagToCheck)
@@ -163,6 +164,20 @@ public class Board : MonoBehaviour
         {
             if (allBags[pos.x, pos.y].isMatched) // if the bag has been marked as matched
             {
+                if (allBags[pos.x, pos.y].type == Bag.BagType.bomb)
+                {
+                    SFXManager.instance.PlayExplode();
+                }
+                else if (allBags[pos.x, pos.y].type == Bag.BagType.stone)
+                {
+                    SFXManager.instance.PlayExplode();
+                }
+                else
+                {
+                    SFXManager.instance.PlayBagBreak();
+                }
+
+
                 Instantiate(allBags[pos.x, pos.y].destroyEffect, new Vector2(pos.x, pos.y), Quaternion.identity);
 
                 Destroy(allBags[pos.x, pos.y].gameObject); // destroy bag game object at given pos.x and pos.y
@@ -262,7 +277,7 @@ public class Board : MonoBehaviour
 
     private void CheckMisPlacedBags()
     {
-        // find all the bags that exist in the scene atr the moment
+        // find all the bags that exist in the scene at the moment
         List<Bag> foundBags = new List<Bag>();
         foundBags.AddRange(FindObjectsOfType<Bag>());
 

@@ -47,6 +47,7 @@ public class RoundManager : MonoBehaviour
 
         displayScore = Mathf.Lerp(displayScore, currentScore, scoreSpeed * Time.deltaTime);
         uiMan.scoreText.text = displayScore.ToString("0"); // no decimals in score
+        SFXManager.instance.BagSpanwnSFX(); // play sound as points increase?
     }
 
     private void WinCheck()
@@ -66,7 +67,7 @@ public class RoundManager : MonoBehaviour
         }
         else if (currentScore >= scoreTarget2)
         {
-            uiMan.winText.text = "Meh - 2 stars. Keep going, you'll get there (maybe)";
+            uiMan.winText.text = "2 Stars! Remember: Happiness is a full bobbin!";
             uiMan.winStars2.SetActive(true);
 
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
@@ -83,5 +84,7 @@ public class RoundManager : MonoBehaviour
         {
             uiMan.winText.text = "Seriously? No stars!!!??? Try again.";
         }
+
+        SFXManager.instance.PlayRoundOver();
     }
 }

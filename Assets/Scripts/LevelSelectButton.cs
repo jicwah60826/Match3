@@ -17,17 +17,17 @@ public class LevelSelectButton : MonoBehaviour
         star2.SetActive(false);
         star3.SetActive(false);
 
-        if (PlayerPrefs.HasKey(levelToLoad + "_star1"))
+        if (PlayerPrefs.HasKey(levelToLoad + "_Star1"))
         {
             star1.SetActive(true);
         }
 
-        if (PlayerPrefs.HasKey(levelToLoad + "_star2"))
+        if (PlayerPrefs.HasKey(levelToLoad + "_Star2"))
         {
             star2.SetActive(true);
         }
 
-        if (PlayerPrefs.HasKey(levelToLoad + "_star3"))
+        if (PlayerPrefs.HasKey(levelToLoad + "_Star3"))
         {
             star3.SetActive(true);
         }

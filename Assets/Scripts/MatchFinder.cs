@@ -31,7 +31,7 @@ public class MatchFinder : MonoBehaviour
                         Bag rightBag = board.allBags[x + 1, y];
                         if (leftBag != null && rightBag != null)
                         {
-                            if (leftBag.type == currentBag.type && rightBag.type == currentBag.type)
+                            if (leftBag.type == currentBag.type && rightBag.type == currentBag.type && currentBag.type != Bag.BagType.stone)
                             {
                                 currentBag.isMatched = true;
                                 leftBag.isMatched = true;
@@ -50,7 +50,7 @@ public class MatchFinder : MonoBehaviour
                         Bag bottomBag = board.allBags[x, y - 1];
                         if (topBag != null && bottomBag != null)
                         {
-                            if (topBag.type == currentBag.type && bottomBag.type == currentBag.type)
+                            if (topBag.type == currentBag.type && bottomBag.type == currentBag.type && currentBag.type != Bag.BagType.stone)
                             {
                                 currentBag.isMatched = true;
                                 topBag.isMatched = true;

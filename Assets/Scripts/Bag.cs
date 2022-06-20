@@ -40,7 +40,7 @@ public class Bag : MonoBehaviour
     void Update()
     {
 
-        // Animate the gem movement based on the movepieces logic
+        // Animate the bag movement based on the movepieces logic
         if (Vector2.Distance(transform.position, posIndex) > .01f)
         {
             transform.position = Vector2.Lerp(transform.position, posIndex, board.gemSpeed * Time.deltaTime);
@@ -55,11 +55,13 @@ public class Bag : MonoBehaviour
         if (mousePressed == true && Input.GetMouseButtonUp(0))
         {
             mousePressed = false;
+            SFXManager.instance.ButtonClick();
 
             if (board.currentState == Board.BoardState.move && board.roundMan.roundTime > 0)
             {
                 finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
                 CalculateAngle();
+                
             }
         }
     }
@@ -78,6 +80,7 @@ public class Bag : MonoBehaviour
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // find main camera and convert cam space to world space
             //Debug.Log("firstTouchPosition: " + firstTouchPosition);
             mousePressed = true;
+            SFXManager.instance.ButtonClick();
         }
     }
 
@@ -158,6 +161,7 @@ public class Bag : MonoBehaviour
             {
                 // we have matches! Destroy these bags!
                 board.DestroyMatches();
+                SFXManager.instance.PlayBagBreak();
             }
         }
     }
