@@ -223,7 +223,7 @@ public class Board : MonoBehaviour
                 else if (
                     nullCounter > 0)
                 {
-                    allBags[x, y].posIndex.y -= nullCounter; // move the bag down the Y axis by the number os spots we find that are null
+                    allBags[x, y].posIndex.y -= nullCounter; // move the bag down the Y axis by the number of spots we find that are null
                     allBags[x, y - nullCounter] = allBags[x, y];
                     allBags[x, y] = null;
 
@@ -302,6 +302,9 @@ public class Board : MonoBehaviour
 
     public void ShuffleBoard()
     {
+        // play sound
+        SFXManager.instance.ShuffleBoardSFX();
+
         if (currentState != BoardState.wait)
         {
             currentState = BoardState.wait;
@@ -338,7 +341,7 @@ public class Board : MonoBehaviour
                     // setup the new bag position
                     bagsFromBoard[bagToUse].SetupBag(new Vector2Int(x, y), this); //look at the bag were about to set. Have it go to the new point we're looking at.
                     allBags[x, y] = bagsFromBoard[bagToUse]; // on the actual board itself, put the actual bag into that slot
-                    bagsFromBoard.RemoveAt(bagToUse); // remove this bag fropm the bags list so that it can't be picked again
+                    bagsFromBoard.RemoveAt(bagToUse); // remove this bag from the bags list so that it can't be picked again
                 }
             }
             StartCoroutine(FillBoardCo());

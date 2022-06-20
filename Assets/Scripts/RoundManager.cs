@@ -18,10 +18,15 @@ public class RoundManager : MonoBehaviour
 
     public int scoreTarget1, scoreTarget2, scoreTarget3;
 
+    public string levelName;
+
     private void Awake()
     {
         uiMan = FindObjectOfType<UIManager>();
         board = FindObjectOfType<Board>();
+
+        // set level name
+        uiMan.levelName.text = levelName; // set the level name text from the round manager
     }
 
     void Update()
@@ -47,7 +52,6 @@ public class RoundManager : MonoBehaviour
 
         displayScore = Mathf.Lerp(displayScore, currentScore, scoreSpeed * Time.deltaTime);
         uiMan.scoreText.text = displayScore.ToString("0"); // no decimals in score
-        SFXManager.instance.BagSpanwnSFX(); // play sound as points increase?
     }
 
     private void WinCheck()

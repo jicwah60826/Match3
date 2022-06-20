@@ -300,6 +300,9 @@ MonoBehaviour:
   - {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
   - {fileID: 2327150074241827038, guid: ef4be35096813a14891d262ad8e33d18, type: 3}
   - {fileID: 3445631052668941495, guid: ca95832ed1f9c2b458c9fc8470f6f087, type: 3}
+  - {fileID: 8843653447749295940, guid: d6ff68a2cb52e164ab039d30b21c92d3, type: 3}
+  - {fileID: 4449500571856306701, guid: 4765d3640cf3f2449b70b2acc681003a, type: 3}
+  - {fileID: 4797899052652409982, guid: ab096c8cb4068a94f8cf9f130014bc30, type: 3}
   gemSpeed: 6
   maxIterationsAllowed: 100
   waitToRefillBoard: 0.3
@@ -724,6 +727,7 @@ MonoBehaviour:
   scoreTarget1: 5000
   scoreTarget2: 6000
   scoreTarget3: 7000
+  levelName: Level 6
 --- !u!4 &1821843919
 Transform:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class Bag : MonoBehaviour
 
     private Bag otherBag;
 
-    public enum BagType { blue, green, red, orange, purple, bomb, stone }; // specify the values to use in the enum
+    public enum BagType { smallBlue, smallGreen, smallRed, smallOrange, smallPurple, bomb, stone, bigMulti, bigBlue}; // specify the values to use in the enum
     public BagType type; // expose the enum options as type in the editor
     public bool isMatched;
     [HideInInspector]
@@ -26,9 +26,9 @@ public class Bag : MonoBehaviour
 
     public GameObject destroyEffect;
 
-    public int blastSize = 1;
+    public int blastSize;
 
-    public int scoreValue = 10;
+    public int scoreValue;
 
     // Start is called before the first frame update
     void Start()
@@ -154,6 +154,7 @@ public class Bag : MonoBehaviour
 
                 board.allBags[posIndex.x, posIndex.y] = this;
                 board.allBags[otherBag.posIndex.x, otherBag.posIndex.y] = otherBag;
+                SFXManager.instance.BagNoMatchSFX(); // no matches - play swap back sound
                 yield return new WaitForSeconds(.5f);
                 board.currentState = Board.BoardState.move; //allow move once bags switch bag to current positions
             }
@@ -161,6 +162,7 @@ public class Bag : MonoBehaviour
             {
                 // we have matches! Destroy these bags!
                 board.DestroyMatches();
+                SFXManager.instance.BagHasMatchSFX();
                 SFXManager.instance.PlayBagBreak();
             }
         }

@@ -760,6 +760,7 @@ MonoBehaviour:
   scoreTarget1: 2000
   scoreTarget2: 3000
   scoreTarget3: 4000
+  levelName: Level 5
 --- !u!4 &1821843919
 Transform:
   m_ObjectHideFlags: 0

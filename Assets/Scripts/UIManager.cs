@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text winScore;
     public TMP_Text winText;
+    public TMP_Text levelName;
     public GameObject winStars1, winStars2, winStars3;
     public GameObject roundOverScreen;
 

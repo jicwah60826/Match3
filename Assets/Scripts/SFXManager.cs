@@ -11,25 +11,25 @@ public class SFXManager : MonoBehaviour
         instance = this;
     }
 
-    public AudioSource bagSound, explodeSound, stoneSound, roundOverSound, buttonOver, buttonClick, bagSpawnSFX, bagNoMatchSFX;
+    public AudioSource bagSound, explodeSound, stoneSound, roundOverSound, buttonOver, buttonClick, bagSpawnSFX, bagNoMatchSFX, bagHasMatchSFX, shuffleBoardSFX;
 
     public void PlayBagBreak()
     {
-        //bagSound.Stop();
+        bagSound.Stop();
         bagSound.pitch = Random.Range(.8f, 1.2f);
         bagSound.Play();
     }
 
     public void PlayExplode()
     {
-        //explodeSound.Stop();
+        explodeSound.Stop();
         explodeSound.pitch = Random.Range(.8f, 1.2f);
         explodeSound.Play();
     }
 
     public void PlayStoneBreak()
     {
-        //stoneSound.Stop();
+        stoneSound.Stop();
         stoneSound.pitch = Random.Range(.8f, 1.2f);
         stoneSound.Play();
     }
@@ -57,8 +57,21 @@ public class SFXManager : MonoBehaviour
 
     public void BagNoMatchSFX()
     {
-        //bagNoMatchSFX.Stop();
+        bagNoMatchSFX.Stop();
         bagNoMatchSFX.pitch = Random.Range(.4f, 2.8f);
         bagNoMatchSFX.Play();
+    }
+    public void BagHasMatchSFX()
+    {
+        bagHasMatchSFX.Stop();
+        bagHasMatchSFX.pitch = Random.Range(1f, 3f);
+        bagHasMatchSFX.Play();
+    }
+
+        public void ShuffleBoardSFX()
+    {
+        shuffleBoardSFX.Stop();
+        shuffleBoardSFX.pitch = Random.Range(.4f, 2.8f);
+        shuffleBoardSFX.Play();
     }
 }

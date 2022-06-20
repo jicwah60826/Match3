@@ -369,6 +369,8 @@ MonoBehaviour:
   - {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
   - {fileID: 2327150074241827038, guid: ef4be35096813a14891d262ad8e33d18, type: 3}
   - {fileID: 3445631052668941495, guid: ca95832ed1f9c2b458c9fc8470f6f087, type: 3}
+  - {fileID: 5198754046118462283, guid: 0bdc72f3daf07604a9783fcf643dfa2e, type: 3}
+  - {fileID: 8843653447749295940, guid: d6ff68a2cb52e164ab039d30b21c92d3, type: 3}
   gemSpeed: 6
   maxIterationsAllowed: 100
   waitToRefillBoard: 0.3
@@ -597,6 +599,7 @@ MonoBehaviour:
   scoreTarget1: 100
   scoreTarget2: 500
   scoreTarget3: 1000
+  levelName: Level 1
 --- !u!4 &1821843919
 Transform:
   m_ObjectHideFlags: 0
@@ -810,26 +813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372731361, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 372731361, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945543122, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108381859552184560, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7108381859552184560, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723906, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_Name
       value: UI Canvas
