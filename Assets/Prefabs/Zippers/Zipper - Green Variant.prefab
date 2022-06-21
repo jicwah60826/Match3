@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: type
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: scoreValue
-      value: 1000
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
       propertyPath: destroyEffect

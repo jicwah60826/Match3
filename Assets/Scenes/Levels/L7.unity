@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 7
   height: 7
-  bgTilePreFab: {fileID: 6639786506511266174, guid: 765db2ce1528aee4bab24a28fe65e2ce, type: 3}
+  bgTilePreFab: {fileID: 6134420451770770671, guid: 577a806a54c143e44acf2596dae8447d, type: 3}
   bags:
   - {fileID: 3418847356926605938, guid: 7e13b07f65d29054faaebff7bf7182e4, type: 3}
   - {fileID: 6070486624779149376, guid: 15ede937c812c9142ae55c2432ffbd95, type: 3}
