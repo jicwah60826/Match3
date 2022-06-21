@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6070486624447945314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5742119452234455085, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.0428572
+      objectReference: {fileID: 0}
+    - target: {fileID: -5742119452234455085, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.76857144
+      objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: scoreValue
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4302797951561769680, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_Name
+      value: Zipper - Blue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513485142761024772, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ea7bc8caf87f68a4cb7d28bc8f76b7ca, type: 3}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521938813567296609, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}

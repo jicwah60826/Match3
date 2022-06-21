@@ -241,9 +241,8 @@ MonoBehaviour:
   bgTilePreFab: {fileID: 6134420451770770671, guid: 577a806a54c143e44acf2596dae8447d, type: 3}
   bags:
   - {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
-  - {fileID: 2327150074241827038, guid: ef4be35096813a14891d262ad8e33d18, type: 3}
+  - {fileID: 6401658393602912094, guid: 030c21c5e93799c48a47c83aec05e578, type: 3}
   - {fileID: 3445631052668941495, guid: ca95832ed1f9c2b458c9fc8470f6f087, type: 3}
-  - {fileID: 4797899052652409982, guid: ab096c8cb4068a94f8cf9f130014bc30, type: 3}
   - {fileID: 5198754046118462283, guid: 0bdc72f3daf07604a9783fcf643dfa2e, type: 3}
   gemSpeed: 6
   maxIterationsAllowed: 100
@@ -723,9 +722,9 @@ MonoBehaviour:
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
-  scoreTarget1: 1000
+  scoreTarget1: 500
   scoreTarget2: 1500
-  scoreTarget3: 3000
+  scoreTarget3: 2000
   levelName: Level 3
 --- !u!4 &1821843919
 Transform:

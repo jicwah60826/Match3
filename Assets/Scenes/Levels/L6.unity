@@ -297,12 +297,11 @@ MonoBehaviour:
   height: 7
   bgTilePreFab: {fileID: 6134420451770770671, guid: 577a806a54c143e44acf2596dae8447d, type: 3}
   bags:
-  - {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
-  - {fileID: 2327150074241827038, guid: ef4be35096813a14891d262ad8e33d18, type: 3}
-  - {fileID: 3445631052668941495, guid: ca95832ed1f9c2b458c9fc8470f6f087, type: 3}
+  - {fileID: 7536999179325168347, guid: e769fdcba7b7ab64faa5fa8ad2f00159, type: 3}
+  - {fileID: 5920207146308649099, guid: 483a0f0d75eac9e4e87db36a4ea80831, type: 3}
   - {fileID: 8843653447749295940, guid: d6ff68a2cb52e164ab039d30b21c92d3, type: 3}
-  - {fileID: 4449500571856306701, guid: 4765d3640cf3f2449b70b2acc681003a, type: 3}
-  - {fileID: 4797899052652409982, guid: ab096c8cb4068a94f8cf9f130014bc30, type: 3}
+  - {fileID: 5860993176769450051, guid: 9abc52617ae37ad4a9f3493aa37e541f, type: 3}
+  - {fileID: 2794024175648891689, guid: dc038b32d945edc44800f3c7eb8bca05, type: 3}
   gemSpeed: 6
   maxIterationsAllowed: 100
   waitToRefillBoard: 0.3
@@ -724,9 +723,9 @@ MonoBehaviour:
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
-  scoreTarget1: 5000
-  scoreTarget2: 6000
-  scoreTarget3: 7000
+  scoreTarget1: 1000
+  scoreTarget2: 2000
+  scoreTarget3: 3000
   levelName: Level 6
 --- !u!4 &1821843919
 Transform:

@@ -364,13 +364,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 4
   height: 4
-  bgTilePreFab: {fileID: 6134420451770770671, guid: 577a806a54c143e44acf2596dae8447d, type: 3}
+  bgTilePreFab: {fileID: 6639786506511266174, guid: 765db2ce1528aee4bab24a28fe65e2ce, type: 3}
   bags:
   - {fileID: 742554146, guid: f6d54b5e65f7c5d4891abe5cb5f4fd27, type: 3}
   - {fileID: 2327150074241827038, guid: ef4be35096813a14891d262ad8e33d18, type: 3}
   - {fileID: 3445631052668941495, guid: ca95832ed1f9c2b458c9fc8470f6f087, type: 3}
   - {fileID: 5198754046118462283, guid: 0bdc72f3daf07604a9783fcf643dfa2e, type: 3}
-  - {fileID: 8843653447749295940, guid: d6ff68a2cb52e164ab039d30b21c92d3, type: 3}
+  - {fileID: 4797899052652409982, guid: ab096c8cb4068a94f8cf9f130014bc30, type: 3}
   gemSpeed: 6
   maxIterationsAllowed: 100
   waitToRefillBoard: 0.3
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1064307dc7347e241b8988c103d858ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 30
+  roundTime: 60
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
