@@ -65,6 +65,7 @@ public class Board : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
+            Debug.Log("Shuffle Pressed");
             ShuffleBoard();
         }
     }

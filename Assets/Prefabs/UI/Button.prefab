@@ -30,6 +30,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6276630577448652646}
   m_Father: {fileID: 0}
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 71423479ff305c34193b727bc0f49073, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 18dd84a2ed25a3040864f4a4456d118e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -107,9 +108,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 11911abf739d27444a793c49100da1c0, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 027fc8e99a13deb47babef947dab72f3, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: d7dd75218f288f64c94f202efaf22a7f, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 49fbaca71d083ce4887c406cf119e348, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: d9cd8b8fc2355e9409cdf4244a45b1f5, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 49fbaca71d083ce4887c406cf119e348, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -207,14 +208,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6276630577232444895}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.0000076293945}
+  m_SizeDelta: {x: -68.9818, y: -19.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6276630577448652648
 CanvasRenderer:
@@ -246,8 +248,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Select
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28836e06b88576a488f711a35b1ace95, type: 2}
+  m_sharedMaterial: {fileID: 6082886815875359997, guid: 28836e06b88576a488f711a35b1ace95, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -271,7 +273,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 98.1
+  m_fontSize: 83.75
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
