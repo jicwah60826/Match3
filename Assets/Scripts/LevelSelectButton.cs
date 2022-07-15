@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelectButton : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelSelectButton : MonoBehaviour
     public string levelToLoad;
 
     public GameObject star1, star2, star3;
+
+    public Button levelButton;
 
     // Start is called before the first frame update
     void Start()

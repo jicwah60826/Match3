@@ -287,7 +287,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.504, g: 0.83369416, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.45101887, g: 0.6723523, b: 0.7830189, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -599,13 +599,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1064307dc7347e241b8988c103d858ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 56.9
+  roundTime: 60
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
-  scoreTarget1: 100
-  scoreTarget2: 500
-  scoreTarget3: 1000
+  scoreTarget1: 1000
+  scoreTarget2: 2000
+  scoreTarget3: 3000
   levelName: Level 1
 --- !u!4 &1821843919
 Transform:
@@ -825,9 +825,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2764141929580928025, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723906, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_Name
       value: UI Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414230960008723906, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723910, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_Pivot.x
@@ -911,6 +919,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723910, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414230960008723911, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
