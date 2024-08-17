@@ -736,6 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -923,6 +924,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723911, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414230960466381921, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
