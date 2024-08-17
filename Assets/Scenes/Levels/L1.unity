@@ -838,6 +838,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7414230960008723908, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7414230960008723910, guid: 6f31364831ec95a4fb53e959e4d7a216, type: 3}
       propertyPath: m_Pivot.x
       value: 0
